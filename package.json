@@ -1,0 +1,49 @@
+{
+  "name": "ws-typescript-react",
+  "version": "1.0.0",
+  "description": "Step-by-step example project - Typescript and React",
+  "repository": "git@github.com:savo92/ws-typescript-react.git",
+  "author": "Lorenzo Savini <savo@develer.com>",
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^3.22.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@types/node": "^10",
+    "@types/react": "^16",
+    "@types/react-dom": "^16",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^7.3.1",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "tslint": "^5.19.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-immutable": "^6.0.1",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.3",
+    "typescript-tslint-plugin": "^0.5.4",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-manifest-plugin": "^2.0.4"
+  },
+  "scripts": {
+    "build": "webpack --config webpack/webpack.config.js",
+    "dist": "env NODE_ENV=production webpack --config webpack/webpack.config.js",
+    "lint": "tslint -p . -c tslint.json './src/**/*.tsx'",
+    "start": "webpack-dev-server --config webpack/webpack.dev.config.js"
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "module": "es6",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "noUnusedLocals": true,
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "strict": true,
+        "target": "es6",
+        "lib": [
+            "dom",
+            "es2015",
+            "es5",
+            "esnext.asynciterable",
+        ],
+        "plugins": [
+            {
+                "name": "tslint-language-service"
+            },
+            {
+                "alwaysShowRuleFailuresAsWarnings": false,
+                "configFile": "./tslint.json",
+                "ignoreDefinitionFiles": true,
+                "mockTypeScriptVersion": false,
+                "name": "typescript-tslint-plugin",
+                "suppressWhileTypeErrorsPresent": false
+            }
+        ]
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
