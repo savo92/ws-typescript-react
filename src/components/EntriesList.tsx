@@ -29,9 +29,15 @@ const EntryCheck = (props: IEntryProps): JSX.Element => (
 );
 
 const Entry = (props: IEntryProps): JSX.Element => {
-
-    const descr = props.entry.dueDate !== undefined ? props.entry.dueDate.toUTCString() : "";
-    const tags = props.entry.tags.map((tag: string) => <Tag color={randomColor()} key={tag}>{tag}</Tag>);
+    const descr =
+        props.entry.dueDate !== undefined
+            ? props.entry.dueDate.toUTCString()
+            : "";
+    const tags = props.entry.tags.map((tag: string) => (
+        <Tag color={randomColor()} key={tag}>
+            {tag}
+        </Tag>
+    ));
 
     const toggleStatus = (
         <EntryCheck
@@ -53,12 +59,8 @@ const Entry = (props: IEntryProps): JSX.Element => {
 };
 
 export const EntriesList = (props: IListProps): JSX.Element => {
-
     const renderItem = (entry: IToDoEntry): JSX.Element => (
-        <Entry
-            entry={entry}
-            onStatusToggle={props.onStatusToggle}
-        />
+        <Entry entry={entry} onStatusToggle={props.onStatusToggle} />
     );
 
     return (

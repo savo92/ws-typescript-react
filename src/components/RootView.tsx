@@ -11,10 +11,9 @@ interface IState {
 }
 
 export class RootView extends React.PureComponent<{}, IState> {
-
     constructor(props: {}) {
         super(props);
-        this.state = {entries: []};
+        this.state = { entries: [] };
 
         this.addNewEntry = this.addNewEntry.bind(this);
         this.toggleStatus = this.toggleStatus.bind(this);
@@ -41,7 +40,11 @@ export class RootView extends React.PureComponent<{}, IState> {
         );
     }
 
-    private addNewEntry(description: string, tags: string[], dueDate?: Date): void {
+    private addNewEntry(
+        description: string,
+        tags: string[],
+        dueDate?: Date,
+    ): void {
         const now = new Date();
         const newEntry: IToDoEntry = {
             completed: false,
@@ -72,5 +75,4 @@ export class RootView extends React.PureComponent<{}, IState> {
             };
         });
     }
-
 }

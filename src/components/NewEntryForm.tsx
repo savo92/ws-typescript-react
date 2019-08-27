@@ -19,28 +19,27 @@ interface ITagInputProps {
 
 const DescriptionInput = (props: IDescriptionInputProps): JSX.Element => (
     <>
-    {props.getFieldDecorator("description", {
-        rules: [{ required: true, message: "Please input a description!" }],
-    })(
-        <Input
-            autoComplete={"off"}
-            prefix={<Icon type="form" />}
-            placeholder="Write here..."
-        />,
-    )}
+        {props.getFieldDecorator("description", {
+            rules: [{ required: true, message: "Please input a description!" }],
+        })(
+            <Input
+                autoComplete={"off"}
+                prefix={<Icon type="form" />}
+                placeholder="Write here..."
+            />,
+        )}
     </>
 );
 
 const TagInput = (props: ITagInputProps): JSX.Element => (
     <>
-    {props.form.getFieldDecorator("tags")(
-        <EditableTagGroup onChange={props.form.setFieldsValue} />,
-    )}
+        {props.form.getFieldDecorator("tags")(
+            <EditableTagGroup onChange={props.form.setFieldsValue} />,
+        )}
     </>
 );
 
 class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
-
     constructor(props: IFormProps) {
         super(props);
 
@@ -53,15 +52,24 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
     }
 
     public render(): JSX.Element {
-        const { getFieldDecorator, getFieldError, isFieldTouched } = this.props.form;
-        const descrError = isFieldTouched("description")
-            && getFieldError("description") !== undefined
-            && getFieldError("description")!.length > 0;
+        const {
+            getFieldDecorator,
+            getFieldError,
+            isFieldTouched,
+        } = this.props.form;
+        const descrError =
+            isFieldTouched("description") &&
+            getFieldError("description") !== undefined &&
+            getFieldError("description")!.length > 0;
 
         return (
             <Form layout="inline" onSubmit={this.onSubmit}>
                 <Form.Item
-                    help={/* tslint:disable strict-boolean-expressions */descrError ? getFieldError("description") : ""}
+                    help={
+                        /* tslint:disable strict-boolean-expressions */ descrError
+                            ? getFieldError("description")
+                            : ""
+                    }
                     validateStatus={descrError ? "error" : ""}
                 >
                     <DescriptionInput getFieldDecorator={getFieldDecorator} />
@@ -93,7 +101,8 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
             }
         });
     }
-
 }
 
-export const NewEntryForm = Form.create<IFormProps>({ name: "new_entry_form" })(NewEntryFormContent);
+export const NewEntryForm = Form.create<IFormProps>({ name: "new_entry_form" })(
+    NewEntryFormContent,
+);

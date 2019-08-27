@@ -14,7 +14,6 @@ interface IState {
 }
 
 export class EditableTagGroup extends React.Component<IProps, IState> {
-
     private input: Input | null = null;
 
     constructor(props: IProps) {
@@ -60,7 +59,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
                     {tagElem}
                 </Tooltip>
             ) : (
-              tagElem
+                tagElem
             );
         });
     }
