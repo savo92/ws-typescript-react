@@ -10,17 +10,17 @@
 ## Commands
 
 ### Start dev server
-`yarn start`
+`yarn start`, then navigate to [http://localhost:8080](http://localhost:8080).
 
 ### Build dev bundle
 `yarn build`
 
 ### Build Production bundle
-`yarn dist`
+`yarn dist`, then check the content of `./dist/`.
 
 ### Run linter
 `yarn lint`
 
 ### Format code
-Using [Prettier](https://prettier.io).<br />
+_Using [Prettier](https://prettier.io)._<br />
 `yarn prettify`
