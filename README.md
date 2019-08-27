@@ -20,3 +20,7 @@
 
 ## Run linter
 `yarn lint`
+
+## Format code
+Using [Prettier](https://prettier.io).
+`yarn prettify`
