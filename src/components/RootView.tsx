@@ -66,7 +66,8 @@ export class RootView extends React.PureComponent<{}, IState> {
     private toggleStatus(entryId: string): void {
         this.setState((state) => {
             // On VScode, if you hover over `entries`, it will describe it as `IToDoEntry`.
-            // This thanks to the Typescript type inference and VScode that has an advanced support to Typescript
+            // This thanks to the Typescript type inference and VScode that has an advanced support to Typescript.
+            // For more details, see https://www.typescriptlang.org/docs/handbook/type-inference.html.
             const entries = state.entries.map((entry: IToDoEntry) => {
                 if (entry.id === entryId) {
                     entry.completed = !entry.completed;

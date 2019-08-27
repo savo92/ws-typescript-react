@@ -114,6 +114,7 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
 // This allows Form.create to capture the type the we provided and use it as props for the NewEntryFormContent,
 // which it's wrapping inside NewEntryForm.
 // This allows TypeScript to know the props it accepts and that providing `onCreate` is valid.
+// For more details, see https://www.typescriptlang.org/docs/handbook/generics.html#hello-world-of-generics.
 export const NewEntryForm = Form.create<IFormProps>({ name: "new_entry_form" })(
     NewEntryFormContent,
 );
