@@ -18,9 +18,9 @@
 ### Build Production bundle
 `yarn dist`
 
-## Run linter
+### Run linter
 `yarn lint`
 
-## Format code
-Using [Prettier](https://prettier.io).
+### Format code
+Using [Prettier](https://prettier.io).<br />
 `yarn prettify`
