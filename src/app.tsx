@@ -1,5 +1,5 @@
 import * as React from "react";
 
-export const App = (): JSX.Element => (
-    <p>Hello world!</p>
-);
+import { RootView } from "./components/RootView";
+
+export const App = (): JSX.Element => <RootView />;
