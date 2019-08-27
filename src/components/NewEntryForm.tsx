@@ -1,15 +1,22 @@
 // tslint:disable jsx-no-multiline-js
 import { Button, Form, Icon, Input } from "antd";
+// You can also import from package internal files
 import { FormComponentProps, WrappedFormUtils } from "antd/lib/form/Form";
 import * as React from "react";
 
 import { EditableTagGroup } from "./EditableTagGroup";
 
+// An interface can extend another one.
 interface IFormProps extends FormComponentProps {
+    // Here how to declare a callable, just add params into the parenthesis and the return at the end
+    // In this case, onCreate accepts 2 required params (description and tags) and an optional param dueDate.
+    // onCreate doesn't have a return.
     onCreate(description: string, tags: string[], dueDate?: Date): void;
 }
 
 interface IDescriptionInputProps {
+    // The form WrappedFormUtils["getFieldDecorator"] is needed here
+    // because WrappedFormUtils is a type, not a namespace.
     getFieldDecorator: WrappedFormUtils["getFieldDecorator"];
 }
 
@@ -103,6 +110,10 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
     }
 }
 
+// Form.create accepts a type variable that we provide here inside as <IFormProps>.
+// This allows Form.create to capture the type the we provided and use it as props for the NewEntryFormContent,
+// which it's wrapping inside NewEntryForm.
+// This allows TypeScript to know the props it accepts and that providing `onCreate` is valid.
 export const NewEntryForm = Form.create<IFormProps>({ name: "new_entry_form" })(
     NewEntryFormContent,
 );
