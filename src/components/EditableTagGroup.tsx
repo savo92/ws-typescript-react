@@ -5,6 +5,9 @@ import * as React from "react";
 
 interface IProps {
     tags: string[];
+    // We need to use WrappedFormUtils["setFieldsValue"],
+    // instead of WrappedFormUtils.setFieldsValue,
+    // because WrappedFormUtils is a type and not a namespace.
     onChange: WrappedFormUtils["setFieldsValue"];
 }
 

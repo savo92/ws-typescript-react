@@ -29,6 +29,8 @@ const EntryCheck = (props: IEntryProps): JSX.Element => (
 );
 
 const Entry = (props: IEntryProps): JSX.Element => {
+    // Here we don't need to suffix dueDate with ! (when calling props.entry.dueDate.toUTCString())
+    // because we're ensuring props.entry.dueDate is not undefined.
     const descr =
         props.entry.dueDate !== undefined
             ? props.entry.dueDate.toUTCString()
@@ -58,6 +60,7 @@ const Entry = (props: IEntryProps): JSX.Element => {
     );
 };
 
+// This is a stateless Component.
 export const EntriesList = (props: IListProps): JSX.Element => {
     const renderItem = (entry: IToDoEntry): JSX.Element => (
         <Entry entry={entry} onStatusToggle={props.onStatusToggle} />

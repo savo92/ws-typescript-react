@@ -8,7 +8,7 @@ import { EditableTagGroup } from "./EditableTagGroup";
 
 // An interface can extend another one.
 interface IFormProps extends FormComponentProps {
-    // Here how to declare a callable, just add params into the parenthesis and the return at the end
+    // Here you can see how to declare a callable, just add params into the parenthesis and the return at the end
     // In this case, onCreate accepts 2 required params (description and tags) and an optional param dueDate.
     // onCreate doesn't have a return.
     onCreate(description: string, tags: string[], dueDate?: Date): void;
@@ -59,7 +59,7 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, IState> {
     constructor(props: IFormProps) {
         super(props);
 
-        this.state = {tags: []};
+        this.state = { tags: [] };
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onTagsChange = this.onTagsChange.bind(this);
@@ -117,8 +117,12 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, IState> {
         e.preventDefault();
         this.props.form.validateFields((errors) => {
             if (!errors) {
-                const descr: string = this.props.form.getFieldValue("description");
-                const tags: string[] | undefined = this.props.form.getFieldValue("tags");
+                const descr: string = this.props.form.getFieldValue(
+                    "description",
+                );
+                const tags:
+                    | string[]
+                    | undefined = this.props.form.getFieldValue("tags");
 
                 this.props.onCreate(descr, tags !== undefined ? tags : []);
                 this.props.form.resetFields();
