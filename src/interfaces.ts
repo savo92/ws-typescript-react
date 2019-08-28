@@ -10,7 +10,7 @@ export interface IToDoEntry {
     description: string;
     // A question mark after the name indicates that the property is optional, so it could be undefined.
     dueDate?: Date;
-    id: string;
+    id: symbol;
     // tags is an array of strings.
     tags: string[];
 }

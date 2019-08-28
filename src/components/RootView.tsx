@@ -54,7 +54,7 @@ export class RootView extends React.PureComponent<{}, IState> {
             creationDate: now,
             description,
             dueDate,
-            id: `entry-${now.toUTCString()}-${Math.random()}`,
+            id: Symbol(),
             tags,
         };
 
@@ -63,7 +63,7 @@ export class RootView extends React.PureComponent<{}, IState> {
         });
     }
 
-    private toggleStatus(entryId: string): void {
+    private toggleStatus(entryId: symbol): void {
         this.setState((state) => {
             // On VScode, if you hover over `entries`, it will describe it as `IToDoEntry`.
             // This thanks to the Typescript type inference and VScode that has an advanced support to Typescript.

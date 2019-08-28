@@ -5,12 +5,12 @@ import { IToDoEntry } from "../interfaces";
 
 interface IEntryProps {
     entry: IToDoEntry;
-    onStatusToggle(entryId: string): void;
+    onStatusToggle(entryId: symbol): void;
 }
 
 interface IListProps {
     entries: IToDoEntry[];
-    onStatusToggle(entryId: string): void;
+    onStatusToggle(entryId: symbol): void;
 }
 
 const randomColor = (): string => {
