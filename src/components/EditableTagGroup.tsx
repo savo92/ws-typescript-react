@@ -4,13 +4,13 @@ import { WrappedFormUtils } from "antd/lib/form/Form";
 import * as React from "react";
 
 interface IProps {
+    tags: string[];
     onChange: WrappedFormUtils["setFieldsValue"];
 }
 
 interface IState {
     inputValue: string;
     inputVisible: boolean;
-    tags: string[];
 }
 
 export class EditableTagGroup extends React.Component<IProps, IState> {
@@ -22,7 +22,6 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
         this.state = {
             inputValue: "",
             inputVisible: false,
-            tags: [],
         };
 
         this.handleClose = this.handleClose.bind(this);
@@ -42,7 +41,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
     }
 
     private renderTags(): JSX.Element[] {
-        return this.state.tags.map((tag) => {
+        return this.props.tags.map((tag) => {
             const isLongTag = tag.length > 20;
             const tagElem = (
                 <Tag
@@ -91,8 +90,8 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
     }
 
     private handleClose(removedTag: string): void {
-        const tags = this.state.tags.filter((tag) => tag !== removedTag);
-        this.setState({ tags });
+        const tags = this.props.tags.filter((tag) => tag !== removedTag);
+        this.props.onChange(tags);
     }
 
     private showInput(): void {
@@ -105,7 +104,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
 
     private handleInputConfirm(): void {
         const { inputValue } = this.state;
-        let { tags } = this.state;
+        let { tags } = this.props;
         if (inputValue !== "" && tags.indexOf(inputValue) === -1) {
             tags = [...tags, inputValue];
         }
@@ -113,7 +112,6 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
         this.setState({
             inputValue: "",
             inputVisible: false,
-            tags,
         });
         this.props.onChange(tags);
     }

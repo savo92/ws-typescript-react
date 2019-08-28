@@ -14,6 +14,10 @@ interface IFormProps extends FormComponentProps {
     onCreate(description: string, tags: string[], dueDate?: Date): void;
 }
 
+interface IState {
+    tags: string[];
+}
+
 interface IDescriptionInputProps {
     // The form WrappedFormUtils["getFieldDecorator"] is needed here
     // because WrappedFormUtils is a type, not a namespace.
@@ -22,6 +26,8 @@ interface IDescriptionInputProps {
 
 interface ITagInputProps {
     form: WrappedFormUtils;
+    tags: string[];
+    onTagsChange(tags: string[]): void;
 }
 
 const DescriptionInput = (props: IDescriptionInputProps): JSX.Element => (
@@ -41,16 +47,22 @@ const DescriptionInput = (props: IDescriptionInputProps): JSX.Element => (
 const TagInput = (props: ITagInputProps): JSX.Element => (
     <>
         {props.form.getFieldDecorator("tags")(
-            <EditableTagGroup onChange={props.form.setFieldsValue} />,
+            <EditableTagGroup
+                onChange={props.onTagsChange}
+                tags={props.tags}
+            />,
         )}
     </>
 );
 
-class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
+class NewEntryFormContent extends React.PureComponent<IFormProps, IState> {
     constructor(props: IFormProps) {
         super(props);
 
+        this.state = {tags: []};
+
         this.onSubmit = this.onSubmit.bind(this);
+        this.onTagsChange = this.onTagsChange.bind(this);
     }
 
     public componentDidMount(): void {
@@ -82,7 +94,11 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
                     <DescriptionInput getFieldDecorator={getFieldDecorator} />
                 </Form.Item>
                 <Form.Item>
-                    <TagInput form={this.props.form} />
+                    <TagInput
+                        form={this.props.form}
+                        tags={this.state.tags}
+                        onTagsChange={this.onTagsChange}
+                    />
                 </Form.Item>
                 <Form.Item>
                     <Button
@@ -101,12 +117,19 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, {}> {
         e.preventDefault();
         this.props.form.validateFields((errors) => {
             if (!errors) {
-                const descr = this.props.form.getFieldValue("description");
-                const tags = this.props.form.getFieldValue("tags");
-                this.props.onCreate(descr, tags);
+                const descr: string = this.props.form.getFieldValue("description");
+                const tags: string[] | undefined = this.props.form.getFieldValue("tags");
+
+                this.props.onCreate(descr, tags !== undefined ? tags : []);
                 this.props.form.resetFields();
+                this.setState({ tags: [] });
             }
         });
+    }
+
+    private onTagsChange(tags: string[]): void {
+        this.setState({ tags });
+        this.props.form.setFieldsValue(tags);
     }
 }
 
