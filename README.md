@@ -8,6 +8,7 @@
 2. Run `yarn install` or `npm install` (depending on the package manager you prefer).
 
 ## Commands
+_In case you prefer to use NPM, just replace `yarn` with `npm run-script`._
 
 ### Start dev server
 `yarn start`, then navigate to [http://localhost:8080](http://localhost:8080).
