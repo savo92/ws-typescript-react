@@ -42,15 +42,8 @@ const tsRule = {
     },
 };
 
-//const mJsRule = {
-//    test: /\.mjs$/,
-//    include: /node_modules/,
-//    type: 'javascript/auto',
-//};
-
 module.exports = {
     "file": fileRule,
-    //'mJs': mJsRule,
     "sass": sassRule,
     "sourceMap": sourceMapRule,
     "ts": tsRule,

@@ -34,7 +34,6 @@ module.exports = {
     module: {
         rules: [
             rules.file,
-            //rules.mJs,
             rules.sass,
             rules.sourceMap,
             rules.ts,
@@ -77,7 +76,6 @@ module.exports = {
 
     resolve: {
         extensions: [
-            //'.mjs',
             ".js",
             ".jsx",
             ".ts",
