@@ -10,6 +10,7 @@ export interface IToDoEntry {
     description: string;
     // A question mark after the name indicates that the property is optional, so it could be undefined.
     dueDate?: Date;
+    // The ES6 Symbol is capitalized, but its TypeScript primitive data type is lowercase.
     id: symbol;
     // tags is an array of strings.
     tags: string[];
