@@ -101,7 +101,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
         this.setState({ inputVisible: true }, () => this.input!.focus());
     }
 
-    private handleInputChange(e): void {
+    private handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
         this.setState({ inputValue: e.target.value });
     }
 

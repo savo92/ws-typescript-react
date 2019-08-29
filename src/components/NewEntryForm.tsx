@@ -113,7 +113,7 @@ class NewEntryFormContent extends React.PureComponent<IFormProps, IState> {
         );
     }
 
-    private onSubmit(e: React.FormEvent): void {
+    private onSubmit(e: React.FormEvent<HTMLFormElement>): void {
         e.preventDefault();
         this.props.form.validateFields((errors) => {
             if (!errors) {
