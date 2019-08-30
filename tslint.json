@@ -15,6 +15,7 @@
         "linebreak-style": [true, "LF"],
         "member-access": true,
         "newline-before-return": true,
+        "no-any": true,
         "no-boolean-literal-compare": true,
         "no-console": false,
         "no-debugger": true,
