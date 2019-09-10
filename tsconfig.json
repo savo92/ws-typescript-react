@@ -13,7 +13,7 @@
             "dom",
             "es2015",
             "es5",
-            "esnext.asynciterable",
+            "esnext.asynciterable"
         ],
         "plugins": [
             {
