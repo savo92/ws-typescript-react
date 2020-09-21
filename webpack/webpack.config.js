@@ -17,7 +17,6 @@ const outputDir = path.resolve("dist");
 const plugins = [
     // To inject data and assets paths to the index.html.
     new HtmlWebpackPlugin({
-        inject: false,
         template: "./src/index.html",
         title: "ws-typescript-react",
     }),

@@ -1,6 +1,7 @@
 // tslint:disable: jsx-no-multiline-js
-import { Icon, Input, Tag, Tooltip } from "antd";
-import { WrappedFormUtils } from "antd/lib/form/Form";
+import { Input, Tag, Tooltip } from "antd";
+import { FormInstance } from 'antd/lib/form/Form';
+import { PlusOutlined } from '@ant-design/icons';
 import * as React from "react";
 
 interface IProps {
@@ -8,7 +9,7 @@ interface IProps {
     // We need to use WrappedFormUtils["setFieldsValue"],
     // instead of WrappedFormUtils.setFieldsValue,
     // because WrappedFormUtils is a type and not a namespace.
-    onChange: WrappedFormUtils["setFieldsValue"];
+    onChange: FormInstance["setFieldsValue"];
 }
 
 interface IState {
@@ -87,7 +88,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
                 onClick={this.showInput}
                 style={{ background: "#fff", borderStyle: "dashed" }}
             >
-                <Icon type="plus" /> New Tag
+                <PlusOutlined /> New Tag
             </Tag>
         );
     }
