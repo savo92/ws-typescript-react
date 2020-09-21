@@ -1,7 +1,5 @@
 # ws-typescript-react
 
-> Step-by-step example project - Typescript and React
-
 ## Setup
 
 1. Be sure you're using Node v12.x (Erbium) or just run `nvm use` if you've [NVM](https://github.com/nvm-sh/nvm) installed.
