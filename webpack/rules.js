@@ -34,12 +34,8 @@ const sourceMapRule = {
 };
 
 const tsRule = {
-    loader: "awesome-typescript-loader",
+    loader: "ts-loader",
     test: /\.tsx?$/,
-    options: {
-        cacheDirectory: path.resolve("node_modules", ".cache", "atl"),
-        useCache: true,
-    },
 };
 
 module.exports = {
