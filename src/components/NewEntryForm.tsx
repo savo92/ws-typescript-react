@@ -41,8 +41,8 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
                     name="description"
                     rules={[
                         {
-                            required: true,
                             message: "Please provide a description",
+                            required: true,
                         },
                     ]}
                 >

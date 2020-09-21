@@ -53,6 +53,7 @@ module.exports = {
         "@typescript-eslint/ban-types": [
             "error",
             {
+
                 "types": {
                     "Object": {
                         "message": "Avoid using the `Object` type. Did you mean `object`?"
@@ -71,7 +72,8 @@ module.exports = {
                     },
                     "Symbol": {
                         "message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
-                    }
+                    },
+                    "{}": false
                 }
             }
         ],
