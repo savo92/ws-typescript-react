@@ -36,14 +36,15 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
 
     public render(): JSX.Element {
         return (
-            <Form
-                layout="inline"
-                onFinish={this.onFinish}
-                ref={this.formRef}
-            >
+            <Form layout="inline" onFinish={this.onFinish} ref={this.formRef}>
                 <Form.Item
                     name="description"
-                    rules={[{required: true, message: "Please provide a description"}]}
+                    rules={[
+                        {
+                            required: true,
+                            message: "Please provide a description",
+                        },
+                    ]}
                 >
                     <Input
                         autoComplete={"off"}
@@ -51,9 +52,7 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
                         placeholder="Write here..."
                     />
                 </Form.Item>
-                <Form.Item
-                    name="tags"
-                >
+                <Form.Item name="tags">
                     <EditableTagGroup
                         onChange={this.onTagsChange}
                         tags={this.state.tags}
@@ -72,7 +71,10 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
     }
 
     private onFinish(values: IFormValues): void {
-        this.props.onCreate(values.description, values.tags !== undefined ? values.tags : []);
+        this.props.onCreate(
+            values.description,
+            values.tags !== undefined ? values.tags : [],
+        );
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         this.formRef.current!.resetFields();
         this.setState({ tags: [] });
