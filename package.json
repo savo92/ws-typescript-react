@@ -51,7 +51,7 @@
   "scripts": {
     "build": "webpack --config webpack/webpack.config.js",
     "dist": "env NODE_ENV=production webpack --config webpack/webpack.config.js",
-    "lint": "eslint -c ./src/.eslintrc.js src --ext .tsx,.ts",
+    "lint": "eslint -c .eslintrc.js src --ext .tsx,.ts",
     "prettify": "prettier --write src/**/*",
     "start": "webpack-dev-server --config webpack/webpack.dev.config.js"
   }
