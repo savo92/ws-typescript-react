@@ -26,7 +26,7 @@ export class RootView extends React.PureComponent<{}, IState> {
             <Layout>
                 <Layout.Content className="root-content">
                     <Row>
-                        <Col span={24}>
+                        <Col span={12} offset={6}>
                             <h1>ToDo App</h1>
 
                             <EntriesList

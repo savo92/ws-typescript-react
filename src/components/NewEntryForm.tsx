@@ -36,7 +36,12 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
 
     public render(): JSX.Element {
         return (
-            <Form layout="inline" onFinish={this.onFinish} ref={this.formRef}>
+            <Form
+                className="new-entry-form"
+                layout="inline"
+                onFinish={this.onFinish}
+                ref={this.formRef}
+            >
                 <Form.Item
                     name="description"
                     rules={[
