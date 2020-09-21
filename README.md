@@ -2,7 +2,7 @@
 
 ## Setup
 
-1. Be sure you're using Node v12.x (Erbium) or just run `nvm use` if you've [NVM](https://github.com/nvm-sh/nvm) installed.
+1. Be sure you're using Node v12.x (Erbium) or just run `nvm use` if [NVM](https://github.com/nvm-sh/nvm) is available.
 2. Run `yarn install` or `npm install` (depending on the package manager you prefer).
 
 ## Commands
