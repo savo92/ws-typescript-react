@@ -21,6 +21,7 @@ const randomColor = (): string => {
     return `#${hex}`;
 };
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const EntryCheck = (props: IEntryProps): JSX.Element => (
     <Checkbox
         checked={props.entry.completed}
@@ -28,6 +29,7 @@ const EntryCheck = (props: IEntryProps): JSX.Element => (
     />
 );
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const Entry = (props: IEntryProps): JSX.Element => {
     // Here we don't need to suffix dueDate with ! (when calling props.entry.dueDate.toUTCString())
     // because we're ensuring props.entry.dueDate is not undefined.
@@ -61,6 +63,7 @@ const Entry = (props: IEntryProps): JSX.Element => {
 };
 
 // This is a stateless Component.
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const EntriesList = (props: IListProps): JSX.Element => {
     const renderItem = (entry: IToDoEntry): JSX.Element => (
         <Entry entry={entry} onStatusToggle={props.onStatusToggle} />
@@ -68,7 +71,7 @@ export const EntriesList = (props: IListProps): JSX.Element => {
 
     return (
         <List
-            bordered={true}
+            bordered
             dataSource={props.entries}
             header={<h3>To do:</h3>}
             renderItem={renderItem}

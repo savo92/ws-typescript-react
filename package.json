@@ -24,6 +24,7 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^4.3.0",
     "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsdoc": "^30.5.1",
     "eslint-plugin-jsx": "^0.1.0",
@@ -50,7 +51,7 @@
   "scripts": {
     "build": "webpack --config webpack/webpack.config.js",
     "dist": "env NODE_ENV=production webpack --config webpack/webpack.config.js",
-    "lint": "tslint -p . -c tslint.json './src/**/*.tsx'",
+    "lint": "eslint -c ./src/.eslintrc.js src --ext .tsx,.ts",
     "prettify": "prettier --write src/**/*",
     "start": "webpack-dev-server --config webpack/webpack.dev.config.js"
   }

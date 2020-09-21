@@ -12,8 +12,8 @@ interface IState {
 
 // You can provide interfaces for props and state directly in the class declaration.
 // Here, props is an empty object and state is IState.
-export class RootView extends React.PureComponent<{}, IState> {
-    constructor(props: {}) {
+export class RootView extends React.PureComponent<void, IState> {
+    public constructor(props: void) {
         super(props);
         this.state = { entries: [] };
 

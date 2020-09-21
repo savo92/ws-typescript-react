@@ -1,7 +1,7 @@
 // tslint:disable: jsx-no-multiline-js
 import { Input, Tag, Tooltip } from "antd";
-import { FormInstance } from 'antd/lib/form/Form';
-import { PlusOutlined } from '@ant-design/icons';
+import { FormInstance } from "antd/lib/form/Form";
+import { PlusOutlined } from "@ant-design/icons";
 import * as React from "react";
 
 interface IProps {
@@ -20,7 +20,7 @@ interface IState {
 export class EditableTagGroup extends React.Component<IProps, IState> {
     private input: Input | null = null;
 
-    constructor(props: IProps) {
+    public constructor(props: IProps) {
         super(props);
 
         this.state = {
@@ -49,7 +49,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
             const isLongTag = tag.length > 20;
             const tagElem = (
                 <Tag
-                    closable={true}
+                    closable
                     key={tag}
                     onClose={this.handleClose.bind(this, tag)}
                 >
@@ -99,7 +99,7 @@ export class EditableTagGroup extends React.Component<IProps, IState> {
     }
 
     private showInput(): void {
-        this.setState({ inputVisible: true }, () => this.input!.focus());
+        this.setState({ inputVisible: true }, () => this.input && this.input.focus());
     }
 
     private handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {

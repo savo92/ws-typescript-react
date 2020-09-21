@@ -6,7 +6,7 @@ It represents the closest reasonable ESLint configuration to this
 project's original TSLint configuration.
 
 We recommend eventually switching this configuration to extend from
-the recommended rulesets in typescript-eslint. 
+the recommended rulesets in typescript-eslint.
 https://github.com/typescript-eslint/tslint-to-eslint-config/blob/master/docs/FAQs.md
 
 Happy linting! 💖
@@ -18,20 +18,27 @@ module.exports = {
         "node": true
     },
     "extends": [
+        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "prettier",
+        "prettier/@typescript-eslint"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": "tsconfig.json",
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "plugins": [
         "eslint-plugin-import",
         "eslint-plugin-prefer-arrow",
         "eslint-plugin-jsdoc",
         "eslint-plugin-react",
+        "react",
         "@typescript-eslint",
         "@typescript-eslint/tslint"
     ],
@@ -71,6 +78,7 @@ module.exports = {
         "@typescript-eslint/consistent-type-assertions": "error",
         "@typescript-eslint/consistent-type-definitions": "error",
         "@typescript-eslint/dot-notation": "error",
+        "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/explicit-member-accessibility": [
             "error",
             {
@@ -245,7 +253,7 @@ module.exports = {
             "never"
         ],
         "react/jsx-key": "error",
-        "react/jsx-no-bind": "error",
+        "react/jsx-no-bind": "off",
         "react/jsx-wrap-multilines": "error",
         "space-before-function-paren": [
             "error",
@@ -271,11 +279,6 @@ module.exports = {
             {
                 "rules": {
                     "import-spacing": true,
-                    "jsx-alignment": true,
-                    "jsx-no-lambda": true,
-                    "jsx-no-multiline-js": true,
-                    "jsx-no-string-ref": true,
-                    "jsx-self-close": true,
                     "object-literal-sort-keys": true,
                     "prefer-conditional-expression": [
                         true,

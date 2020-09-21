@@ -1,6 +1,6 @@
 import { Button, Input, Form } from "antd";
 import { FormInstance } from "antd/lib/form/Form";
-import { FormOutlined, RocketOutlined } from '@ant-design/icons';
+import { FormOutlined, RocketOutlined } from "@ant-design/icons";
 import * as React from "react";
 
 import { EditableTagGroup } from "./EditableTagGroup";
@@ -23,9 +23,9 @@ interface IFormValues {
 }
 
 export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
-    formRef = React.createRef<FormInstance>();
+    private formRef = React.createRef<FormInstance>();
 
-    constructor(props: IFormProps) {
+    public constructor(props: IFormProps) {
         super(props);
 
         this.state = { tags: [] };
@@ -54,7 +54,7 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
                 <Form.Item
                     name="tags"
                 >
-                        <EditableTagGroup
+                    <EditableTagGroup
                         onChange={this.onTagsChange}
                         tags={this.state.tags}
                     />
@@ -73,12 +73,14 @@ export class NewEntryForm extends React.PureComponent<IFormProps, IState> {
 
     private onFinish(values: IFormValues): void {
         this.props.onCreate(values.description, values.tags !== undefined ? values.tags : []);
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         this.formRef.current!.resetFields();
         this.setState({ tags: [] });
     }
 
     private onTagsChange(tags: string[]): void {
         this.setState({ tags });
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         this.formRef.current!.setFieldsValue(tags);
     }
 }
